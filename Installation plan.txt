@@ -1,8 +1,12 @@
 Installation plan:
 
+boot from USB-drive.
+
 Step 1: choose "Install Ubuntu"
-Step 2: disk partition.
-Step 3: Choose the disk you want to use to install the system. 
-Step 4: wait for installation finish.
-Step 5: reboot computer.
-Step 6:
+Step 2: make sure there is enough space for the system. (5.4G)
+Step 3: Choose "Erase disk and install ubuntu", click "Install Now"
+Step 4: Type-in the city.
+Step 5£ºChoose keyboard layout(English(US))
+Step 6: type-in user information, click "continue".
+Step 7: wait for installation finish.
+Step 8: When the installation finish, click "Restart Now"
