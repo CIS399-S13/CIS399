@@ -1,0 +1,8 @@
+Installation plan:
+
+Step 1: choose "Install Ubuntu"
+Step 2: disk partition.
+Step 3: Choose the disk you want to use to install the system. 
+Step 4: wait for installation finish.
+Step 5: reboot computer.
+Step 6:
