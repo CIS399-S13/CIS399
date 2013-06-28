@@ -1,5 +1,8 @@
 Installation plan:
 
+prepare steps:
+download ubuntu iso from internet 
+
 boot from USB-drive.
 
 Step 1: choose "Install Ubuntu"
