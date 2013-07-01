@@ -1,10 +1,10 @@
 Installation plan:
 
-
 prepare steps:
 
 download ubuntu iso from internet 
 
+Step 0:Plug the USB flash drive into the computer.
 
 Step 1: 
 Tap F12 key while booting your machine to select boot option, and 
@@ -33,9 +33,13 @@ ex. if you use English keyboard, select English(US) from both left and right win
 
 Step 7: “Who are you?” screen
 Type-in your user information, then click “continue”.
+It is better to choose log in with password. 
 
 Step 8: 
-Wait for installation finish.
+Wait for installation finish. It usually takes 15min more or less. 
 
 Step 9: 
-After the installation finish, click “Restart Now”.
+After the installation finish,it will prompt out said that Installation is complete.You need to restart the computer in order to use the new installation. Then click “Restart Now” button.
+
+Step 10:
+After the system restart, it waits for input the correct password. After input the password, the computer is almost ready to use. If it prompts out and asks for any updates, please follow the steps to complete it.
