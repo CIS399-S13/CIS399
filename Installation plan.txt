@@ -6,13 +6,36 @@ prepare steps:
 download ubuntu iso from internet 
 
 
-boot from USB-drive.
+Step 1: 
+Tap F12 key while booting your machine to select boot option, and 
+Select USB device as a boot device in the boot device menu.
 
-Step 1: choose "Install Ubuntu"
-Step 2: make sure there is enough space for the system. (5.4G)
-Step 3: Choose "Erase disk and install ubuntu", click "Install Now"
-Step 4: Type-in the city.
-Step 5: Choose keyboard layout(English(US))
-Step 6: type-in user information, click "continue".
-Step 7: wait for installation finish.
-Step 8: When the installation finish, click "Restart Now"
+Step 2:
+After boot up from USB device, You see “Welcome” screen
+select English
+click Install Ubuntu
+
+Step 3: “Preparing to install Ubuntu” screen
+Make sure there is enough space for the system (5.4GB).
+Click “continue”
+
+Step 4: “Installation type” screen
+Choose "Erase disk and install ubuntu", 
+or if you reinstall Ubuntu, choose Erase Ubuntu and reinstall.
+click "Install Now"
+
+Step 5: “Where are you?” screen
+Type-in the city name. 
+
+Step 6: “Keyboard layout” screen
+Select the language you want to use from left side window, then select keyboard type from right side window.
+ex. if you use English keyboard, select English(US) from both left and right window.
+
+Step 7: “Who are you?” screen
+Type-in your user information, then click “continue”.
+
+Step 8: 
+Wait for installation finish.
+
+Step 9: 
+After the installation finish, click “Restart Now”.
