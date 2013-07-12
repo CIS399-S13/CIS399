@@ -1,7 +1,8 @@
 assignment 2 
+
 Q2: The list of processes started on your system at boot time, and a description of how each one was started.
 
-Last login: Tue Jul  9 15:34:30 2013 from wlan-nat-outside-222-19.uoregon.edu
+
 beibei@asian-OptiPlex-745:~$ ps alx
 F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
 4     0     1     0  20   0  26928  2792 poll_s Ss   ?          0:01 /sbin/init
@@ -116,4 +117,3 @@ F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
 4     0  3273   676  20   0  94524  4072 poll_s Ss   ?          0:00 sshd: beibei [priv] 
 5  1003  3388  3273  20   0  94524  1972 poll_s S    ?          0:00 sshd: beibei@pts/1  
 0  1003  3389  3388  20   0  26788  3816 wait   Ss   pts/1      0:00 -bash
-0  1003  3479  3389  20   0  14212   880 -      R+   pts/1      0:00 ps alx
