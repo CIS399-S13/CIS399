@@ -1,0 +1,119 @@
+assignment 2 
+Q2: The list of processes started on your system at boot time, and a description of how each one was started.
+
+Last login: Tue Jul  9 15:34:30 2013 from wlan-nat-outside-222-19.uoregon.edu
+beibei@asian-OptiPlex-745:~$ ps alx
+F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0     1     0  20   0  26928  2792 poll_s Ss   ?          0:01 /sbin/init
+	When the init command starts, it becomes the parent or grandparent of all of the processes that start up automatically on the system. First, it runs the /etc/rc.d/rc.sysinit script, which sets the environment path, starts swap, checks the file systems, and executes all other steps required for system initialization.
+
+1     0     2     0  20   0      0     0 kthrea S    ?          0:00 [kthreadd]
+	It started by the kernel, but are managed as user processes. 
+
+1     0     3     2  20   0      0     0 smpboo S    ?          0:00 [ksoftirqd/0]
+
+1     0     5     2   0 -20      0     0 worker S<   ?          0:00 [kworker/0:0H]
+1     0     7     2   0 -20      0     0 worker S<   ?          0:00 [kworker/u:0H]
+1     0     8     2 -100  -      0     0 cpu_st S    ?          0:00 [migration/0]
+1     0     9     2  20   0      0     0 rcu_gp S    ?          0:00 [rcu_bh]
+1     0    10     2  20   0      0     0 rcu_gp S    ?          0:00 [rcu_sched]
+5     0    11     2 -100  -      0     0 smpboo S    ?          0:00 [watchdog/0]
+5     0    12     2 -100  -      0     0 smpboo S    ?          0:00 [watchdog/1]
+1     0    13     2  20   0      0     0 smpboo S    ?          0:00 [ksoftirqd/1]
+1     0    14     2 -100  -      0     0 cpu_st S    ?          0:00 [migration/1]
+1     0    16     2   0 -20      0     0 worker S<   ?          0:00 [kworker/1:0H]
+1     0    17     2   0 -20      0     0 rescue S<   ?          0:00 [cpuset]
+1     0    18     2   0 -20      0     0 rescue S<   ?          0:00 [khelper]
+5     0    19     2  20   0      0     0 devtmp S    ?          0:00 [kdevtmpfs]
+1     0    20     2   0 -20      0     0 rescue S<   ?          0:00 [netns]
+1     0    21     2  20   0      0     0 bdi_fo S    ?          0:00 [bdi-default]
+1     0    22     2   0 -20      0     0 rescue S<   ?          0:00 [kintegrityd]
+1     0    23     2   0 -20      0     0 rescue S<   ?          0:00 [kblockd]
+1     0    24     2   0 -20      0     0 rescue S<   ?          0:00 [ata_sff]
+1     0    25     2  20   0      0     0 hub_th S    ?          0:00 [khubd]
+1     0    26     2   0 -20      0     0 rescue S<   ?          0:00 [md]
+1     0    27     2   0 -20      0     0 rescue S<   ?          0:00 [devfreq_wq]
+1     0    28     2  20   0      0     0 worker S    ?          0:01 [kworker/0:1]
+1     0    29     2  20   0      0     0 worker S    ?          0:00 [kworker/1:1]
+1     0    30     2  20   0      0     0 watchd S    ?          0:00 [khungtaskd]
+1     0    31     2  20   0      0     0 kswapd S    ?          0:00 [kswapd0]
+1     0    32     2  25   5      0     0 ksm_sc SN   ?          0:00 [ksmd]
+1     0    33     2  39  19      0     0 khugep SN   ?          0:00 [khugepaged]
+1     0    34     2  20   0      0     0 fsnoti S    ?          0:00 [fsnotify_mark]
+1     0    35     2  20   0      0     0 ecrypt S    ?          0:00 [ecryptfs-kthrea]
+1     0    36     2   0 -20      0     0 rescue S<   ?          0:00 [crypto]
+1     0    47     2   0 -20      0     0 rescue S<   ?          0:00 [kthrotld]
+1     0    50     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_0]
+1     0    51     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_1]
+1     0    53     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_2]
+1     0    54     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_3]
+1     0    55     2  20   0      0     0 worker S    ?          0:00 [kworker/u:3]
+1     0    56     2  20   0      0     0 worker S    ?          0:00 [kworker/u:4]
+1     0    57     2   0 -20      0     0 rescue S<   ?          0:00 [binder]
+1     0    77     2   0 -20      0     0 rescue S<   ?          0:00 [deferwq]
+1     0    78     2   0 -20      0     0 rescue S<   ?          0:00 [charger_manager]
+1     0   131     2  20   0      0     0 worker S    ?          0:00 [kworker/1:2]
+1     0   208     2   0 -20      0     0 rescue S<   ?          0:00 [firewire]
+1     0   229     2  20   0      0     0 kjourn S    ?          0:00 [jbd2/sda1-8]
+1     0   230     2   0 -20      0     0 rescue S<   ?          0:00 [ext4-dio-unwrit]
+1     0   275     1  20   0  15268   392 poll_s S    ?          0:00 upstart-file-bridge --daemon
+1     0   326     1  20   0  17448   904 poll_s S    ?          0:00 upstart-udev-bridge --daemon
+5     0   328     1  20   0  22000  1832 ep_pol Ss   ?          0:00 /sbin/udevd --daemon
+1     0   436     2   0 -20      0     0 worker S<   ?          0:00 [kworker/0:1H]
+5     0   537   328  20   0  21996  1336 ep_pol S    ?          0:00 /sbin/udevd --daemon
+5     0   538   328  20   0  21996  1296 ep_pol S    ?          0:00 /sbin/udevd --daemon
+1     0   620     2   0 -20      0     0 rescue S<   ?          0:00 [kpsmoused]
+1     0   652     2   0 -20      0     0 rescue S<   ?          0:00 [kvm-irqfd-clean]
+4     0   676     1  20   0  52252  2884 poll_s Ss   ?          0:00 /usr/sbin/sshd -D
+1     0   678     2   0 -20      0     0 rescue S<   ?          0:00 [hd-audio0]
+5   101   697     1  20   0 247456  1420 poll_s Sl   ?          0:01 rsyslogd -c5
+1     0   715     1  20   0  15256   632 poll_s S    ?          0:00 upstart-socket-bridge --daemon
+5   102   762     1  20   0  24848  1964 ep_pol Ss   ?          0:00 dbus-daemon --system --fork
+4     0   770     1  20   0  83408  3276 poll_s Ss   ?          0:00 /usr/sbin/modem-manager
+5     0   773     1  20   0  19240  1732 poll_s Ss   ?          0:00 /usr/sbin/bluetoothd
+5     0   790     2  10 -10      0     0 rfcomm S<   ?          0:00 [krfcommd]
+5     0   831     1  20   0 264356  6324 poll_s Ssl  ?          0:00 NetworkManager
+4     0   835     1  20   0 209328  5856 poll_s Sl   ?          0:00 /usr/lib/policykit-1/polkitd --no-debug
+4     0   894     1  20   0  20020   992 n_tty_ Ss+  tty4       0:00 /sbin/getty -8 38400 tty4
+4     0   900     1  20   0  20020   996 n_tty_ Ss+  tty5       0:00 /sbin/getty -8 38400 tty5
+4     0   910     1  20   0  20020  1000 n_tty_ Ss+  tty2       0:00 /sbin/getty -8 38400 tty2
+4     0   911     1  20   0  20020   992 n_tty_ Ss+  tty3       0:00 /sbin/getty -8 38400 tty3
+4     0   914     1  20   0  20020   996 n_tty_ Ss+  tty6       0:00 /sbin/getty -8 38400 tty6
+1     0   927     1  20   0   4508   816 poll_s Ss   ?          0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+4     0   928     1  20   0 199892  3168 poll_s Ssl  ?          0:00 gdm
+1     0   933     1  20   0  21324  1048 hrtime Ss   ?          0:00 cron
+4     0  1013   928  20   0 292252  4220 poll_s Sl   ?          0:00 /usr/lib/gdm/gdm-simple-slave --display-id /org/gnome/DisplayManager/Displ
+4     0  1070  1013  20   0 130636 20304 poll_s Ssl+ tty7       0:00 /usr/bin/X :0 -background none -verbose -auth /run/gdm/auth-for-gdm-vcZJen
+1   106  1105     1  20   0 289024  5276 poll_s Ssl  ?          0:00 whoopsie
+4     0  1136     1  20   0  20020   984 n_tty_ Ss+  tty1       0:00 /sbin/getty -8 38400 tty1
+4 65534  1138   831  20   0  33092  1536 poll_s S    ?          0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-inter
+4     0  1225  1013  20   0 238232  4288 poll_s Sl   ?          0:00 gdm-session-worker [pam/gdm-launch-environment]
+4     0  1228     1  20   0 277176  4284 poll_s Sl   ?          0:00 /usr/lib/accountsservice/accounts-daemon
+4     0  1232     1  20   0 1043176 3956 poll_s Sl   ?          0:00 /usr/sbin/console-kit-daemon --no-daemon
+1     0  1335     2  20   0      0     0 kaudit S    ?          0:00 [kauditd]
+4   117  1385  1225  20   0 427280 10476 poll_s Ssl  ?          0:00 /usr/bin/gnome-session --autostart /usr/share/gdm/greeter/autostart
+1   117  1389     1  20   0  24464   584 poll_s S    ?          0:00 /usr/bin/dbus-launch --exit-with-session /usr/bin/gnome-session --autostar
+1   117  1390     1  20   0  24380  1284 ep_pol Ss   ?          0:00 //bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+0   117  1394     1  20   0 356616  4516 poll_s Sl   ?          0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+0   117  1398  1394  20   0  23852  1540 ep_pol S    ?          0:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --
+0   117  1401     1  20   0 124720  3360 poll_s Sl   ?          0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+0   117  1418     1  20   0 178028  2672 poll_s Sl   ?          0:00 /usr/lib/dconf/dconf-service
+0   117  1430     1  20   0  57956  3584 poll_s S    ?          0:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+0   117  1445  1385  20   0 791204 19044 poll_s Sl   ?          0:00 /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+4     0  1450     1  20   0 222296  4432 poll_s Sl   ?          0:00 /usr/lib/upower/upowerd
+0   117  1587     1  20   0 196456  2880 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfsd
+0   117  1595  1385  20   0 1116112 62428 poll_s Sl  ?          0:03 gnome-shell --mode=gdm
+1   117  1614     1   9 -11 346428  5480 poll_s S<l  ?          0:00 /usr/bin/pulseaudio --start --log-target=syslog
+4   108  1616     1  21   1 168916  1360 poll_s SNl  ?          0:00 /usr/lib/rtkit/rtkit-daemon
+0   117  1627     1  20   0 224508  5712 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+4     0  1630     1  20   0 372936  6020 poll_s Sl   ?          0:03 /usr/lib/udisks2/udisksd --no-debug
+0   117  1638     1  20   0 203544  3268 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+0   117  1642     1  20   0 285528  3280 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+0   117  1647     1  20   0 191368  2836 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+1     0  3266     2  20   0      0     0 worker S    ?          0:00 [kworker/0:2]
+1     0  3269     2  20   0      0     0 worker S    ?          0:00 [kworker/0:0]
+1     0  3270     2  20   0      0     0 bdi_wr S    ?          0:00 [flush-8:0]
+4     0  3273   676  20   0  94524  4072 poll_s Ss   ?          0:00 sshd: beibei [priv] 
+5  1003  3388  3273  20   0  94524  1972 poll_s S    ?          0:00 sshd: beibei@pts/1  
+0  1003  3389  3388  20   0  26788  3816 wait   Ss   pts/1      0:00 -bash
+0  1003  3479  3389  20   0  14212   880 -      R+   pts/1      0:00 ps alx
