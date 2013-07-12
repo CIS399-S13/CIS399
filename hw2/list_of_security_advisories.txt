@@ -1,0 +1,115 @@
+Ubuntu security advisories can be found in
+http://www.ubuntu.com/usn/raring/
+
+All the necessary patches can be installed by typing the following command in the prompt
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+These are the list of security udpate.   
+USN-1902-1: Ruby vulnerability - 9th July 2013 (Not necessary)
+
+William (B.J.) Snow Orvis discovered that Ruby incorrectly verified the hostname in SSL certificates. An attacker could trick Ruby into trusting a rogue server certificate, which was signed by a trusted certificate authority, to perform a man-in-the-middle attack.
+
+CVE-2013-4073
+
+USN-1898-1: OpenSSL vulnerability - 3rd July 2013 (necessary)
+
+The TLS protocol 1.2 and earlier can encrypt compressed data without properly obfuscating the length of the unencrypted data, which allows man-in-the-middle attackers to obtain plaintext content by observing length differences during a series of guesses in which a provided string potentially matches an unknown string in encrypted and compressed ...
+
+CVE-2012-4929
+
+USN-1897-1: PyMongo vulnerability - 3rd July 2013 (Not necessary)
+
+Jibbers McGee discovered that PyMongo incorrectly handled certain invalid DBRefs. An attacker could use this issue to cause PyMongo to crash, resulting in a denial of service.
+
+CVE-2013-2132
+
+USN-1890-2: Firefox regression - 3rd July 2013 (necessary)
+
+USN-1890-1 fixed vulnerabilities in Firefox. This update introduced a regression which sometimes resulted in Firefox using the wrong network proxy settings. This update fixes the problem. We apologize for the inconvenience. Original advisory details: Multiple memory safety issues were discovered in Firefox. If the user were tricked into opening a ...
+
+LP: 1194841
+
+USN-1896-1: Module::Signature perl module vulnerability - 3rd July 2013 (not necessary)
+
+Florian Weimer discovered that the Module::Signature perl module incorrectly loaded unknown ciphers from relative directories. An attacker could possibly use this flaw to execute arbitrary code when a signature is verified.
+
+CVE-2013-2145
+
+USN-1895-1: libvirt vulnerability - 2nd July 2013 (not necessary)
+
+It was discovered that libvirt incorrectly handled certain storage pool requests. A remote attacker could use this issue to cause libvirt to consume resources, resulting in a denial of service.
+
+CVE-2013-1962
+
+USN-1894-1: curl vulnerability - 2nd July 2013 (necessary)
+
+Timo Sirainen discovered that libcurl incorrectly handled memory when parsing URL encoded strings. An attacker could possibly use this issue to cause libcurl to crash, leading to a denial of service, or execute arbitrary code.
+
+CVE-2013-2174
+
+USN-1893-1: Subversion vulnerabilities - 27th June 2013 (not necessary)
+
+Alexander Klink discovered that the Subversion mod_dav_svn module for Apache did not properly handle a large number of properties. A remote authenticated attacker could use this flaw to cause memory consumption, leading to a denial of service. (CVE-2013-1845) Ben Reser discovered that the Subversion mod_dav_svn module for Apache did not ...
+
+CVE-2013-1845 CVE-2013-1846 CVE-2013-1847 CVE-2013-1849 CVE-2013-1884 CVE-2013-1968 CVE-2013-2112
+
+USN-1891-1: Thunderbird vulnerabilities - 26th June 2013 (Not necessary)
+
+Multiple memory safety issues were discovered in Thunderbird. If the user were tricked into opening a specially crafted message with scripting enabled, an attacker could possibly exploit these to cause a denial of service via application crash, or potentially execute arbitrary code with the privileges of the user invoking Thunderbird. ...
+
+CVE-2013-1682 CVE-2013-1684 CVE-2013-1685 CVE-2013-1686 CVE-2013-1687 CVE-2013-1690 CVE-2013-1692 CVE-2013-1693 CVE-2013-1694 CVE-2013-1697 LP: 1193919
+
+USN-1890-1: Firefox vulnerabilities - 26th June 2013 (Necessary)
+
+Multiple memory safety issues were discovered in Firefox. If the user were tricked into opening a specially crafted page, an attacker could possibly exploit these to cause a denial of service via application crash, or potentially execute arbitrary code with the privileges of the user invoking Firefox. (CVE-2013-1682, CVE-2013-1683) Abhishek ...
+
+CVE-2013-1682 CVE-2013-1683 CVE-2013-1684 CVE-2013-1685 CVE-2013-1686 CVE-2013-1687 CVE-2013-1688 CVE-2013-1690 CVE-2013-1692 CVE-2013-1693 CVE-2013-1694 CVE-2013-1695 CVE-2013-1696 CVE-2013-1697 CVE-2013-1698 CVE-2013-1699 LP: 1192913
+
+USN-1889-1: HAProxy vulnerability - 20th June 2013 (not necessary)
+
+David Torgerson discovered that HAProxy incorrectly parsed certain HTTP headers. A remote attacker could use this issue to cause HAProxy to stop responding, resulting in a denial of service.
+
+CVE-2013-2175
+
+USN-1888-1: Mesa vulnerabilities - 20th June 2013 (necessary)
+
+It was discovered that Mesa incorrectly handled certain memory calculations. An attacker could use this flaw to cause an application to crash, or possibly execute arbitrary code. (CVE-2013-1872) Ilja van Sprundel discovered that Mesa incorrectly handled certain memory calculations. An attacker could use this flaw to cause an application to ...
+
+CVE-2013-1872 CVE-2013-1993
+
+USN-1887-1: OpenStack Swift vulnerabilities - 19th June 2013 (not necessary)
+
+Sebastian Krahmer discovered that Swift used the loads function in the pickle Python module when it was configured to use memcached. A remote attacker on the same network as memcached could exploit this to execute arbitrary code. This update adds a new memcache_serialization_support option to support secure json serialization. For ...
+
+CVE-2012-4406 CVE-2013-2161
+
+USN-1886-1: Puppet vulnerability - 18th June 2013 (may need later)
+
+It was discovered that Puppet incorrectly handled YAML payloads. An attacker on an untrusted client could use this issue to execute arbitrary code on the master.
+
+CVE-2013-3567
+
+USN-1884-1: LibRaw vulnerability - 18th June 2013 (necessary)
+
+It was discovered that LibRaw incorrectly handled broken full-color images. If a user or automated system were tricked into processing a specially crafted raw image, applications linked against LibRaw could be made to crash, resulting in a denial of service, or possibly execute arbitrary code.
+
+CVE-2013-2126
+
+USN-1883-1: Linux kernel (OMAP4) vulnerabilities - 14th June 2013 (necessary)
+
+Kees Cook discovered a flaw in the Linux kernel's iSCSI subsystem. A remote unauthenticated attacker could exploit this flaw to cause a denial of service (system crash) or potentially gain administrative privileges. (CVE-2013-2850) Andy Lutomirski discover an error in the Linux kernel's credential handling on unix sockets. A local user ...
+
+CVE-2013-0160 CVE-2013-1979 CVE-2013-2141 CVE-2013-2850 CVE-2013-3076 CVE-2013-3222 CVE-2013-3223 CVE-2013-3224 CVE-2013-3225 CVE-2013-3227 CVE-2013-3228 CVE-2013-3229 CVE-2013-3230 CVE-2013-3231 CVE-2013-3232 CVE-2013-3233 CVE-2013-3234 CVE-2013-3235
+
+USN-1875-1: OpenStack Keystone vulnerabilities - 13th June 2013 (not necessary)
+
+Eoghan Glynn and Alex Meade discovered that Keystone did not properly perform expiry checks for the PKI tokens used in Keystone. If Keystone were setup to use PKI tokens, a previously authenticated user could continue to use a PKI token for longer than intended. This issue only affected Ubuntu 12.10 ...
+
+CVE-2013-2104 CVE-2013-2157
+
+USN-1874-1: DBus vulnerability - 13th June 2013
+
+Alexandru Cornea discovered that DBus incorrectly handled certain messages. A local attacker could use this issue to cause system services to crash, resulting in a denial of service.
+
+CVE-2013-2168
