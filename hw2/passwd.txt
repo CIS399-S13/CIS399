@@ -1,4 +1,4 @@
-kazunori:x:1002:1002:kazunori,,,:/home/kazunori:/bin/bash
-beibei:x:1003:1003:beibei,,,:/home/beibei:/bin/bash
-rongzhi:x:1001:1001:Rongzhi:/home/rongzhi:/bin/bash
-su:x:1000:1000:su:/home/su:/bin/bash
+kazunori:x:1002:1002:kazunori,,,:/home/kazunori:/bin/bash   	: Kazunori's 
+beibei:x:1003:1003:beibei,,,:/home/beibei:/bin/bash		: Beibei's
+rongzhi:x:1001:1001:Rongzhi:/home/rongzhi:/bin/bash		: Louis's
+su:x:1000:1000:su:/home/su:/bin/bash				: root user
