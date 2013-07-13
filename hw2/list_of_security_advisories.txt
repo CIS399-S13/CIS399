@@ -9,7 +9,7 @@ sudo apt-get dist-upgrade
 
 These are the list of security update, and the history of update can be found in the "history.log" file   
 
-USN-1902-1: Ruby vulnerability - 9th July 2013 (Not necessary)
+USN-1902-1: Ruby vulnerability - 9th July 2013 (Not necessary--ruby is not installed)
 
 William (B.J.) Snow Orvis discovered that Ruby incorrectly verified the hostname in SSL certificates. An attacker could trick Ruby into trusting a rogue server certificate, which was signed by a trusted certificate authority, to perform a man-in-the-middle attack.
 
@@ -21,7 +21,7 @@ The TLS protocol 1.2 and earlier can encrypt compressed data without properly ob
 
 CVE-2012-4929
 
-USN-1897-1: PyMongo vulnerability - 3rd July 2013 (Not necessary)
+USN-1897-1: PyMongo vulnerability - 3rd July 2013 (Not necessary--mongoDB is not installed)
 
 Jibbers McGee discovered that PyMongo incorrectly handled certain invalid DBRefs. An attacker could use this issue to cause PyMongo to crash, resulting in a denial of service.
 
@@ -33,7 +33,7 @@ USN-1890-1 fixed vulnerabilities in Firefox. This update introduced a regression
 
 LP: 1194841
 
-USN-1896-1: Module::Signature perl module vulnerability - 3rd July 2013 (not necessary)
+USN-1896-1: Module::Signature perl module vulnerability - 3rd July 2013 (not necessary--parl is not installed)
 
 Florian Weimer discovered that the Module::Signature perl module incorrectly loaded unknown ciphers from relative directories. An attacker could possibly use this flaw to execute arbitrary code when a signature is verified.
 
@@ -57,7 +57,7 @@ Alexander Klink discovered that the Subversion mod_dav_svn module for Apache did
 
 CVE-2013-1845 CVE-2013-1846 CVE-2013-1847 CVE-2013-1849 CVE-2013-1884 CVE-2013-1968 CVE-2013-2112
 
-USN-1891-1: Thunderbird vulnerabilities - 26th June 2013 (Not necessary)
+USN-1891-1: Thunderbird vulnerabilities - 26th June 2013 (Not necessary--thunderbird is not installed)
 
 Multiple memory safety issues were discovered in Thunderbird. If the user were tricked into opening a specially crafted message with scripting enabled, an attacker could possibly exploit these to cause a denial of service via application crash, or potentially execute arbitrary code with the privileges of the user invoking Thunderbird. ...
 
