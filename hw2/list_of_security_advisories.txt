@@ -1,11 +1,14 @@
-Ubuntu security advisories can be found in
+-Ubuntu security advisories can be found in
 http://www.ubuntu.com/usn/raring/
 
-All the necessary patches can be installed by typing the following command in the prompt
+
+-All the necessary patches can be installed by typing the following command in the prompt
 sudo apt-get update
 sudo apt-get dist-upgrade
 
-These are the list of security udpate.   
+
+These are the list of security update, and the history of update can be found in the "history.log" file   
+
 USN-1902-1: Ruby vulnerability - 9th July 2013 (Not necessary)
 
 William (B.J.) Snow Orvis discovered that Ruby incorrectly verified the hostname in SSL certificates. An attacker could trick Ruby into trusting a rogue server certificate, which was signed by a trusted certificate authority, to perform a man-in-the-middle attack.
