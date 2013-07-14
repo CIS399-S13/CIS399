@@ -128,38 +128,83 @@ F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
 5     0   790     2  10 -10      0     0 rfcomm S<   ?          0:00 [krfcommd]
 5     0   831     1  20   0 264356  6324 poll_s Ssl  ?          0:00 NetworkManager
 4     0   835     1  20   0 209328  5856 poll_s Sl   ?          0:00 /usr/lib/policykit-1/polkitd --no-debug
-4     0   894     1  20   0  20020   992 n_tty_ Ss+  tty4       0:00 /sbin/getty -8 38400 tty4
-4     0   900     1  20   0  20020   996 n_tty_ Ss+  tty5       0:00 /sbin/getty -8 38400 tty5
-4     0   910     1  20   0  20020  1000 n_tty_ Ss+  tty2       0:00 /sbin/getty -8 38400 tty2
-4     0   911     1  20   0  20020   992 n_tty_ Ss+  tty3       0:00 /sbin/getty -8 38400 tty3
-4     0   914     1  20   0  20020   996 n_tty_ Ss+  tty6       0:00 /sbin/getty -8 38400 tty6
 1     0   927     1  20   0   4508   816 poll_s Ss   ?          0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+
+
 4     0   928     1  20   0 199892  3168 poll_s Ssl  ?          0:00 gdm
+	This gdm process is started by the initial script. GDM is a display manager that implements all significant features required for managing attached and remote displays
+
 1     0   933     1  20   0  21324  1048 hrtime Ss   ?          0:00 cron
-4     0  1013   928  20   0 292252  4220 poll_s Sl   ?          0:00 /usr/lib/gdm/gdm-simple-slave --display-id /org/gnome/DisplayManager/Display-id /org/gnome/
-4     0  1070  1013  20   0 130636 20304 poll_s Ssl+ tty7       0:00 /usr/bin/X :0 -background none -verbose -auth /run/gdm/auth-for-gdm-vcZJen
+	Corn is time-based job scheduler for unix system which is started by the initial script.
+
+4     0  1013   928  20   0 292252  4220 poll_s Sl   ?          0:00 /usr/lib/gdm/gdm-simple-slave --display-id /org/gnome/DisplayManager/Displays/_0
+	This is a process that created by gdm when gdm is run. 
+
+4     0  1071   1013  20   0 120368 10088 poll_s Ssl+ tty7       2:30 /usr/bin/X :0 -background none -verbose -auth /run/gdm/auth-for-gdm-uaOE3P/database -nolisten tcp vt7s
+	This process will be run when gdm-simple-slave is created. It's the program that controls the graphical interface. 
+
 1   106  1105     1  20   0 289024  5276 poll_s Ssl  ?          0:00 whoopsie
+	It's the daemon that Ubuntu uses to report errors, and it is started by the initial script.
+
 4     0  1136     1  20   0  20020   984 n_tty_ Ss+  tty1       0:00 /sbin/getty -8 38400 tty1
+	This process is a Unix program that manage terminals, each getty serve one terminal. It will be run by initial script if a terminal is start or if the user switch the system to command line mode.
+
 4 65534  1138   831  20   0  33092  1536 poll_s S    ?          0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-inter
+	Dnsmasq is started by the NetworkManager process which is used to configure DNS forwarder and DHCP server.
+
 4     0  1225  1013  20   0 238232  4288 poll_s Sl   ?          0:00 gdm-session-worker [pam/gdm-launch-environment]
+	This process is started by gdm-simply-slave.
+
 4     0  1228     1  20   0 277176  4284 poll_s Sl   ?          0:00 /usr/lib/accountsservice/accounts-daemon
+	This is a daemon started by initial script.s
+
 4     0  1232     1  20   0 1043176 3956 poll_s Sl   ?          0:00 /usr/sbin/console-kit-daemon --no-daemon
+	This process is started by the initial script which is a framework for defining and tracking users, login sessions, and seats.
+
 1     0  1335     2  20   0      0     0 kaudit S    ?          0:00 [kauditd]
+	This process is started by [kthread].
+
 4   117  1385  1225  20   0 427280 10476 poll_s Ssl  ?          0:00 /usr/bin/gnome-session --autostart /usr/share/gdm/greeter/autostart
-1   117  1389     1  20   0  24464   584 poll_s S    ?          0:00 /usr/bin/dbus-launch --exit-with-session /usr/bin/gnome-session --autostar
+	This is a command called by gdm-session-worker which is use to initialize the gnome interface.
+
+1   117  1389     1  20   0  24464   584 poll_s S    ?          0:00 /usr/bin/dbus-launch --exit-with-session /usr/bin/gnome-session --autostart
+	This is a command that run by initial script which is used to start a session bus instance of dbus-daemon
+
 1   117  1390     1  20   0  24380  1284 ep_pol Ss   ?          0:00 //bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+	This is a command run by initial script.
+
 0   117  1394     1  20   0 356616  4516 poll_s Sl   ?          0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+	This is a command run by initial script. It will create a new DBus for AT SPI specific functions.
+
 0   117  1398  1394  20   0  23852  1540 ep_pol S    ?          0:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --
+	This is a process run by at-spi-bus-laucher which is the D-Bus message bus daemon.
+
 0   117  1401     1  20   0 124720  3360 poll_s Sl   ?          0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+	This process is started by initial script which is the registry daemon that allows communication between the UI and assistance devices.
+
 0   117  1418     1  20   0 178028  2672 poll_s Sl   ?          0:00 /usr/lib/dconf/dconf-service
+	This is started by the initial script which is the D-Bus service that writes to the DConf database
+
 0   117  1430     1  20   0  57956  3584 poll_s S    ?          0:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+	This is a process started by the initial script which is the GConf daemon that will notify applications when a preference value changes.
+
 0   117  1445  1385  20   0 791204 19044 poll_s Sl   ?          0:00 /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+	This is a sub-process of gnome-session which is a deamon used to setup gnome.
+
 4     0  1450     1  20   0 222296  4432 poll_s Sl   ?          0:00 /usr/lib/upower/upowerd
+	This is a process that started by initial script which provides the org.freedesktop.UPower service on system manage bus.
+
 0   117  1587     1  20   0 196456  2880 poll_s Sl   ?          0:00 /usr/lib/gvfs/gvfsd
+	This is also a process that started by initial script which is the main daemon for the gvfs virtual filesystem.
+
 0   117  1595  1385  20   0 1116112 62428 poll_s Sl  ?          0:03 gnome-shell --mode=gdm
+	This process is a sub-process of gnome-session which provides core user interface functions for the GNOME 3 desktop.
+	
 1   117  1614     1   9 -11 346428  5480 poll_s S<l  ?          0:00 /usr/bin/pulseaudio --start --log-target=syslog
+	PulseAudio is started by initial script whch is a sound server, a background process accepting sound input from one or more sources (processes or capture devices) and redirecting it to one or more sinks
+
 4   108  1616     1  21   1 168916  1360 poll_s SNl  ?          0:00 /usr/lib/rtkit/rtkit-daemon
-      
+    This is started by initial script which is a D-Bus system service that changes the scheduling policy of user processes/threads on request.
 
 
 
