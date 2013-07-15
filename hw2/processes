@@ -11,125 +11,177 @@ F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
 	It started by the kernel, but are managed as user processes. 
 
 1     0     3     2  20   0      0     0 smpboo S    ?          0:00 [ksoftirqd/0]
+	ksoftirqd is started by kthreadd.
 	ksoftirqd is a per-cpu kernel thread that runs when the machine is under heavy soft-interrupt load. Soft interrupts are normally serviced on return from a hard interrupt, but it's possible for soft interrupts to be triggered more quickly than they can be serviced. If a soft interrupt is triggered for a second time while soft interrupts are being handled, the ksoftirq daemon is triggered to handle the soft interrupts in process context. If ksoftirqd is taking more than a tiny percentage of CPU time, this indicates the machine is under heavy soft interrupt load.
 
 1     0     5     2   0 -20      0     0 worker S<   ?          0:00 [kworker/0:0H]
+	kworker/0:0H is started by kthreadd.
 1     0     7     2   0 -20      0     0 worker S<   ?          0:00 [kworker/u:0H]
+	kworker/u:0H is started by kthreadd.
 	kworker is part of the Linux Kernel's scheduler in which it manages the processes running and switching to it a multitasking.
 
 1     0     8     2 -100  -      0     0 cpu_st S    ?          0:00 [migration/0]
+	migration/0 is started by kthreadd.
 	The migration kernel process distributes workload across CPU cores.
 
 1     0     9     2  20   0      0     0 rcu_gp S    ?          0:00 [rcu_bh]
+	rcu_bh is started by kthreadd. The rcu_bh and rcu_sched processes implementations have CPU stall warning. 
 1     0    10     2  20   0      0     0 rcu_gp S    ?          0:00 [rcu_sched]
-	The rcu_bh and rcu_sched processes implementations have CPU stall warning. 
+	rcu_sched is started by kthreadd.
 
 5     0    11     2 -100  -      0     0 smpboo S    ?          0:00 [watchdog/0]
+	watchdog/0 is started by kthreadd.
 5     0    12     2 -100  -      0     0 smpboo S    ?          0:00 [watchdog/1]
+	watchdog/1 is started by kthreadd.
 	The watchdog process that periodically monitors the health of each core. since this computer have two cores, it has two watchdogs. 
 
 1     0    13     2  20   0      0     0 smpboo S    ?          0:00 [ksoftirqd/1]
+	ksoftirqd/1 is started by kthreadd.
 1     0    14     2 -100  -      0     0 cpu_st S    ?          0:00 [migration/1]
+	migration/1 is started by kthreadd.
 1     0    16     2   0 -20      0     0 worker S<   ?          0:00 [kworker/1:0H]
-
+	kworker/1:0H is started by kthreadd.
 1     0    17     2   0 -20      0     0 rescue S<   ?          0:00 [cpuset]
+	cpuset is started by kthreadd.
 	 Cpusets are logical, hierarchical groupings of CPUs and units of memory. Once created, individual processes can be placed within a cpuset. The processes will only be allowed to run/access the specified CPUs and memory. Cpusets are managed in a virtual file system mounted at /dev/cpuset. New cpusets are created by simply making new directories. Cpusets gain CPUs and memory units by simply writing the unit number to files within the cpuset.
 
 1     0    18     2   0 -20      0     0 rescue S<   ?          0:00 [khelper]
+	khelper is started by kthreadd.
 	The khelper process is a permanent kernel_thread helper. This thread is occasionally used as a schedulable context for stuff that call_usermode_helper wants to run – like /sbin/hotplug or modprobe. 
 
 5     0    19     2  20   0      0     0 devtmp S    ?          0:00 [kdevtmpfs]
-
+	kdevtmpfs is started by kthreadd.
 1     0    20     2   0 -20      0     0 rescue S<   ?          0:00 [netns]
+	netns is started by kthreadd.
 	The netns (network namespaces) is a lightweight container-based virtualization that is part of the mainline 2.6.27+ Linux kernel. A virtual network stack can be associated with a process group. Each namespace has its own loopback device and process space.
 
 1     0    21     2  20   0      0     0 bdi_fo S    ?          0:00 [bdi-default]
-
+	bdi-default is started by kthreadd.
 1     0    22     2   0 -20      0     0 rescue S<   ?          0:00 [kintegrityd]
-
+	kintegrityd is started by kthreadd.
 1     0    23     2   0 -20      0     0 rescue S<   ?          0:00 [kblockd]
+	kblockd is started by kthreadd.
 	The kblockd kernel threads are responsible for performing low-level disk operations.
 
 1     0    24     2   0 -20      0     0 rescue S<   ?          0:00 [ata_sff]
+	ata_sff is started by kthreadd.
 	 The ATA controllers with SFF compliant or similar programming interface.SFF is the legacy IDE interface that has been around since the dawn of time. Almost all PATA controllers have an SFF interface. Many SATA controllers have an SFF interface when configured into a legacy compatibility mode. It defined in drivers/ata/Kconfig. 
 
 1     0    25     2  20   0      0     0 hub_th S    ?          0:00 [khubd]
+	knubd is started by kthreadd.
 	The khubd use for soppose to be kernel hub daemon. 
 1     0    26     2   0 -20      0     0 rescue S<   ?          0:00 [md]
+	md is started by kthreadd.
 	The md means memory disk. The md driver provides support for four kinds of memory backed virtual
      disks: malloc, preload, vnode and swap.
 
 1     0    27     2   0 -20      0     0 rescue S<   ?          0:00 [devfreq_wq]
-
+	devfreq_wq is started by kthreadd.
 1     0    28     2  20   0      0     0 worker S    ?          0:01 [kworker/0:1]
+	kworker/0:1 is started by kthreadd.
 1     0    29     2  20   0      0     0 worker S    ?          0:00 [kworker/1:1]
-
+	kworker/1:1 is started by kthreadd.
 1     0    30     2  20   0      0     0 watchd S    ?          0:00 [khungtaskd]
+	khungtaskd is started by kthreadd.
 	khugtaskd is a single kernel thread. The loop of the khungtaskd daemon is a call to the scheduler for waking it up after ever 120 seconds (default value). The core algorithm is: 1. Iterate over all the tasks in the system which are marked as TASK_UNINTERRUPTIBLE ; 2. If a task has not been switched out by the scheduler atleast once in the last 120 seconds it is considered as a hung task and its stack dump is displayed. 
 
 1     0    31     2  20   0      0     0 kswapd S    ?          0:00 [kswapd0]
+	kswapd0 is started by kthreadd.
 	The kswapd0 is stand for the kernel swap daemon. The name swap daemon is a bit of a misnomer as the daemon does more than just swap modified pages out to the swap file. Its task is to keep the memory management system operating efficiently. 
 
 1     0    32     2  25   5      0     0 ksm_sc SN   ?          0:00 [ksmd]
+	ksmd is started by kthreadd.
 	ksmd is the system process to help VM guest to use less memory, by sharing same virtual memory page.
 
 1     0    33     2  39  19      0     0 khugep SN   ?          0:00 [khugepaged]
+	knugepaged is started by kthreadd.
 	khugepaged is a kernel process, and it will periodically check for large contiguous virtual memory blocks in a process and "collapse" them into a physically contiguous huge page. 
 
 1     0    34     2  20   0      0     0 fsnoti S    ?          0:00 [fsnotify_mark]
-
+	fsnotify_mark is started by kthreadd.
 1     0    35     2  20   0      0     0 ecrypt S    ?          0:00 [ecryptfs-kthrea]
-	Ecryptfs allows concurrent accesses to an encrypted file by opening the relative lower inode only once and making the returned file descriptor available until the ecryptfs inode is destroyed.
+	ecryptfs-kthrea is started by kthreadd. Ecryptfs allows concurrent accesses to an encrypted file by opening the relative lower inode only once and making the returned file descriptor available until the ecryptfs inode is destroyed.
 
 1     0    36     2   0 -20      0     0 rescue S<   ?          0:00 [crypto]
+	crypto is started by kthreadd.
 	crypto is an API for cryptographic services in the kernel.
 
 1     0    47     2   0 -20      0     0 rescue S<   ?          0:00 [kthrotld]
-
+	kthrotld is started by kthreadd.
 1     0    50     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_0]
+	scsi_eh_0 is started by kthreadd.
 1     0    51     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_1]
+	scsi_eh_1 is started by kthreadd.
 1     0    53     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_2]
+	scsi_eh_2 is started by kthreadd.
 1     0    54     2  20   0      0     0 scsi_e S    ?          0:00 [scsi_eh_3]
+	scsi_eh_3 is started by kthreadd.
 	The scsi_eh is SCSI error handling threads.
 
 1     0    55     2  20   0      0     0 worker S    ?          0:00 [kworker/u:3]
+	kworker/u:3 is started by kthreadd.
 1     0    56     2  20   0      0     0 worker S    ?          0:00 [kworker/u:4]
-
+	kworker/u:4 is started by kthreadd.
 1     0    57     2   0 -20      0     0 rescue S<   ?          0:00 [binder]
+	binder is started by kthreadd.
 	The Binder thread represents a separate thread of your service. Binder is a mechanism that provides Inter Process Communication.
 
 1     0    77     2   0 -20      0     0 rescue S<   ?          0:00 [deferwq]
-
+	deferwq is started by kthreadd.
 1     0    78     2   0 -20      0     0 rescue S<   ?          0:00 [charger_manager]
+	charger_manager is started by kthread.
 	Charger Manager provides in-kernel battery charger management that requires temperature monitoring during suspend-to-RAM state and where each battery may have multiple chargers attached and the userland wants to look at the aggregated information of the multiple chargers.
 
 1     0   131     2  20   0      0     0 worker S    ?          0:00 [kworker/1:2]
-
+	kworker/1:2 is started by kthreadd.
 1     0   208     2   0 -20      0     0 rescue S<   ?          0:00 [firewire]
-	FireWire is a method of transferring information between digital devices.
+	firewire is started by kthreadd. FireWire is a method of transferring information between digital devices.
 	
 1     0   229     2  20   0      0     0 kjourn S    ?          0:00 [jbd2/sda1-8]
+	jbd2/sda1-8 is started by kthreadd.
 1     0   230     2   0 -20      0     0 rescue S<   ?          0:00 [ext4-dio-unwrit]
+	ext4-dio-unwrit is started by kthreadd.
 1     0   275     1  20   0  15268   392 poll_s S    ?          0:00 upstart-file-bridge --daemon
+	The process is started by the initial script.
 1     0   326     1  20   0  17448   904 poll_s S    ?          0:00 upstart-udev-bridge --daemon
+	The process is started by the initial script.
+
 5     0   328     1  20   0  22000  1832 ep_pol Ss   ?          0:00 /sbin/udevd --daemon
+	The process is started by the initial script.
+
 1     0   436     2   0 -20      0     0 worker S<   ?          0:00 [kworker/0:1H]
+	The process is started by kthreadd.
+
 5     0   537   328  20   0  21996  1336 ep_pol S    ?          0:00 /sbin/udevd --daemon
+	The process is started by /sbin/udevd --daemon when it is run.
+
 5     0   538   328  20   0  21996  1296 ep_pol S    ?          0:00 /sbin/udevd --daemon
+	The process is started by /sbin/udevd --daemon when it is run.
 1     0   620     2   0 -20      0     0 rescue S<   ?          0:00 [kpsmoused]
+	The process is started by kthreadd.
 1     0   652     2   0 -20      0     0 rescue S<   ?          0:00 [kvm-irqfd-clean]
+	The process is started by kthreadd.
 4     0   676     1  20   0  52252  2884 poll_s Ss   ?          0:00 /usr/sbin/sshd -D
+	The process is started by the initial script.
 1     0   678     2   0 -20      0     0 rescue S<   ?          0:00 [hd-audio0]
 5   101   697     1  20   0 247456  1420 poll_s Sl   ?          0:01 rsyslogd -c5
+	The process is started by the initial script.
 1     0   715     1  20   0  15256   632 poll_s S    ?          0:00 upstart-socket-bridge --daemon
+	The process is started by the initial script.
 5   102   762     1  20   0  24848  1964 ep_pol Ss   ?          0:00 dbus-daemon --system --fork
+	The process is started by the initial script.
 4     0   770     1  20   0  83408  3276 poll_s Ss   ?          0:00 /usr/sbin/modem-manager
+	The process is started by the initial script.
 5     0   773     1  20   0  19240  1732 poll_s Ss   ?          0:00 /usr/sbin/bluetoothd
+	The process is started by the initial script.
 5     0   790     2  10 -10      0     0 rfcomm S<   ?          0:00 [krfcommd]
+	The process is started by kthreadd.
 5     0   831     1  20   0 264356  6324 poll_s Ssl  ?          0:00 NetworkManager
+ 	The process is started by the initial script.
 4     0   835     1  20   0 209328  5856 poll_s Sl   ?          0:00 /usr/lib/policykit-1/polkitd --no-debug
+	The process is started by the initial script.
 1     0   927     1  20   0   4508   816 poll_s Ss   ?          0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
-
+	The process is started by the initial script.
 
 4     0   928     1  20   0 199892  3168 poll_s Ssl  ?          0:00 gdm
 	This gdm process is started by the initial script. GDM is a display manager that implements all significant features required for managing attached and remote displays
