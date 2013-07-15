@@ -1,0 +1,15 @@
+Regular Checking and Update Plan
+
+Base on the update speed of linux components is very fast, we decide to to check the updates at each Friday.
+If there is any update available, we will update it.
+
+Steps:
+1. Open the Terminal or switch to command-line mode by pressing Ctrl+Alt+F1, then login with your account.
+2. For checking update information:
+	Type: "sudo apt-get update" without quotation marks, then press enter.
+	Then type "sudo apt-get -i upgrade" without quotation marks, then press enter. We will see a full list of available updates.
+	If you want to install all package that listed above, just type "yes" and press enter.
+	If you want to install package on your decision, following step 3.
+3. For upgrading new updates one by one:
+	Type: "sudo apt-get install package_name", and press enter. Then it will upgrade the package that you want.
+	
