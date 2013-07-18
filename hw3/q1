@@ -1,0 +1,5 @@
+[0;32mInfo: Retrieving plugin[0m
+[0;32mInfo: Caching catalog for asian.ilab.cs.uoregon.edu[0m
+[0;32mInfo: Applying configuration version '1374104866'[0m
+[mNotice: /Stage[main]/Sshd/Package[openssh-server]/ensure: created[0m
+[mNotice: Finished catalog run in 6.64 seconds[0m
