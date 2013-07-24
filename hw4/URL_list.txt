@@ -1,0 +1,5 @@
+root 
+http://asian.ilab.cs.uoregon.edu/foo.html
+
+personal 
+http://asian.ilab.cs.uoregon.edu/~kazunori/bar.html
