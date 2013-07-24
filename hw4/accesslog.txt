@@ -10,3 +10,7 @@ Access to document root  -->   184.76.21.134 - - [23/Jul/2013:22:20:31 -0700] "G
 	184.76.21.134 - - [23/Jul/2013:22:20:31 -0700] "GET /favicon.ico HTTP/1.1" 404 508 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36"
 Access to personal account --> 184.76.21.134 - - [23/Jul/2013:22:21:22 -0700] "GET /~kazunori/bar.html HTTP/1.1" 304 210 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36"
 	184.76.21.134 - - [23/Jul/2013:22:21:22 -0700] "GET /favicon.ico HTTP/1.1" 404 508 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36"
+	
+	
+	
+Located in /var/log/apache2/access.log
