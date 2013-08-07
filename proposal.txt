@@ -19,3 +19,6 @@ Works need to be completed
 2. Implement the lists into sendmail configuration.
 3. Implement a way to store spam in another folder, and notice recipients that they have a spam in another place.
 4. Test how it works. 
+
+Further maintenance
+Since spam blocking DNS are updating frequently. In addition, it is possible that the DNS we use can be shut down in the future. Therefore, we need to have a method to make sure the DNS is running and updated. 
