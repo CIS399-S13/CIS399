@@ -1,0 +1,47 @@
+Spam Email Blocking and Filtering final report
+Unwanted junk mail – spam – is an ever present problem for any organization that uses email. For most people will receive less messages, and the email service can clutter their mailbox and makes their work more efficient.
+
+Goals for the project and test methods
+In this project, we will update our email service and provide spam filter.By blocking spam email from some DNS, the list of the blocking DNS will be searched from internet.
+Since we cannot really receive spams from many different sources since our server address is not publicized, we will test how it works by adding some DNS that we have email accounts on into the blacklist,
+then send email from those DNS to the server. See if the emails are block.
+
+Implementation:
+Since we already have the sendmail service install in our serve, and we install the spamAssassian. 
+After the spamAssassian is succes to install, integrating spamAssassin with sendmail. 
+First, configuring procmail to receives the email form sendmail and matches the email against a set of rules specified in /etc/procmailrc. 
+Second, configuring spamAssassin. Since spamAssassin works by analysing each email and comparing the various headers and message bodies to a sample set of strings. Or, spamAssassin use Bayesian analysis to learn, analyze and keep the rules datebases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
+Testing Impementation:
+1. magical string test
+2. copying the spams from the uoregon.edu email account and send them to the server. It works, and all the spams will be in the spam folder.
+But if it forwards the spame from the uo email account or gmail account, it doesn't work. They still shows in the mail folder.
+3. useing http://www.maysoft.com/selfservespam.nsf/dl to create spams and send mail to the su@asian.ilab.cs.uoregon.edu. Most of the spams send it to the server will catch and replace into spam folder. Only a few of the spams can show in the regular mail folder. 
+
+Effect on its user population
+Since the blocking method is not really accurate, some emails may be blocked even if it shouldn't be blocked.
+User may complain about this problem. So we may want to make filtering as much accurate as we can. 
+
+
+
+Security issue
+This project can give a cleaner environment to user so that they won't see too many useless emails. 
+Also, normal email messages are not entirely secure. Someone could gain unauthorized access to the mailboxes of sender or recipient. Except for very rare instances of hacking.To achieve this goal, the service will ensure that all emails have the correct address for the intended recipient.
+
+In fact, there is not security issue for adding the spam email blocking and filtering function to the server. 
+
+Works need to be completed
+1. Collect enough DNS blacklist
+2. Implement the lists into sendmail configuration.
+3. Implement a way to store spam in another folder, and notice recipients that they have a spam in another place.
+4. Test how it works. 
+
+Further maintenance
+Since spam blocking DNS are updating frequently. In addition, it is possible that the DNS we use can be shut down in the future. Therefore, we need to have a method to make sure the DNS is running and updated. 
+
+The black list needs to be update frequently.(May be checking the new black list once a day.)
+In order to keeping a better performace to filter out the spam, it needs to let the spamAssassian learning from text. (let it runs for learning twice per week.)
+
+keep track the dns blacklist. 
+
+documentation
+the users have to create their own spam list and config their ; 
