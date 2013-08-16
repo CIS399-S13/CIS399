@@ -19,37 +19,32 @@ Testing our goal:
 			
 		2. Forward the spam from our other email account.
 			We try copying or forwarding some spams from the uoregon.edu email account and gmail account to our asian.ilab.cs.uoreogn.edu server. We assumed it will work, and all the spams will be move to the spam file.
-			However, base on our test result, non of the spam was detected and be filtered. All spams forwarded from other account still be delivered to the normail mail box.
-			At the beginning, we were confuse about this, and we thought that's because the spamAssassin is not working correctly. However, that's not true. We try to find out reason about this from the wiki page. In the wiki page, it states that "if you're not a spammer and the message was solicited and it wasn't bulk then it's not a spam. So don't send yourself "spam" and expect SpamAssassin to agree!" (SpamAssassin Wiki). So no matter how we configure the SpamAssassin, it won't filter any spam that forwarded by ourselves.
+			However, based on our test result, none of the spam was detected and be filtered. All spams forwarded from other account still are delivered to the normal mail box.
+			At the beginning, we were confused about this, and we thought that's because the spamAssassin is not working correctly. However, that's not true. We try to find out reason about this from the wiki page. In the wiki page, it states that "if you're not a spammer and the message was solicited and it wasn't bulk then it's not a spam. So don't send yourself "spam" and expect SpamAssassin to agree!" (SpamAssassin Wiki). So no matter how we configure the SpamAssassin, it won't filter any spam that forwarded by ourselves.
 			Therefore, we failed this test, and it was not efficient test.
 		3. Use online spam generator to send some spam email to our server. 
-			After searching from google, we have found a website that provides sending some spams for test which is http://www.maysoft.com/selfservespam.nsf/dl. This website can create and send at most five spams per request. We try using it to send many spam to our server, and most spams have been caught and moved into spam folder. Only a few of the spams pass the spam filtering and be delivered to the regular mailbox.
+			After searching from Google, we have found a website that provides sending some spams for test which is http://www.maysoft.com/selfservespam.nsf/dl. This website can create and send at most five spams per request. We try using it to send many spam to our server, and most spams have been caught and moved into spam folder. Only a few of the spams pass the spam filtering and be delivered to the regular mailbox.
 
-		Base on these three test, we believe the spam filtering feature is working.
+		Based on these three tests, we believe the spam filtering feature is working.
 
 Effect on its user population:
-	
-	Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or we supposed to deliver as trusted email, but it can go ti spam folder. 
-	Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem. To minimize this problem, we make spam filtering as much accurate as we can. 
-	Even though email blocking and filtering is not perfectly work, this function reduce the amount of annoying junk emails, and potential hazard of user been hacking or phishing to release their confidential information. 
-	/** need to be added**/
+	There is little issue that will affect the user population. Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or supposed to be delivered as trusted email, but it will be blocked or filter into spam folder. Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem if they have the same problem several times. Moreover, some users may give up using our server. However, we cannot avoid this problem since different people will have different spam critiria. It's difficult to have a rule that good for everyone. What we can do is to minimize this problem. To approach this goal, we will make spam filtering as much accurate as we can. Even though email blocking and filtering is not perfectly work, this function reduce the amount of annoying junk emails, and potential hazard of user been hacking or phishing to release their confidential information. 
 
 
 Security issue
-	This project can give a cleaner environment to user so that they won't see too many useless emails. 
-	Also, normal email messages are not entirely secure. Someone could gain unauthorized access to the mailboxes of sender or recipient. Except for very rare instances of hacking.To achieve this goal, the service will ensure that all emails have the correct address for the intended recipient.
-
-	In fact, there is not security issue for adding the spam email blocking and filtering function to the server. 
-
+	In fact, there is no really security issue from adding the spam blocking and filtering function to the server.
+	They one we can say is that his project can give a cleaner environment to user so that they won't see too many useless emails, and will have lower risks of leaking personal information. Some spam may phishing email. These email will get user's personal information for financial purpose. If users don't recongnize those email are phishing email, they may easily lost their money. Also, normal email messages are not entirely secure. Someone could gain unauthorized access to the accounts of sender or recipient by pretending as some companies you are using. These emails are called spear phishing. In current day, many people lost their money because of trusting these email. Therefore, providing spam filtering function can lower user's risk they may meet.  
+	
 Works need to be completed
 	Blocking:
-	/** need to be added **/
+		To enable the blocking feature, what we need to do is to modify the access_db or sendmail.mc file.
+		In this project, we will simply block the DNS that provided by some organization. We will add the organization's link into sendmail.mc as blocking feature, and re-compile it to make it works. We will also add some specific DNS into access_db file and reject those DNS for testing.
 
 	Filtering:
 		Since we already have the sendmail service install in our serve, what we need to do is to install the SpamAssassian. 
 		After the spamAssassian is success to install, integrating spamAssassin with sendmail. 
 		Firstly, configuring procmail to receives the email form sendmail and matches the email against a set of rules specified in /etc/procmailrc. 
-		Secondly, configuring spamAssassin. Since spamAssassin works by analyzing each email and comparing the various headers and message bodies to a sample set of strings. Or, spamAssassin use Bayesian analysis to learn, analyze and keep the rules databases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
+		Secondly, configure spamAssassin to work with sendmail. SpamAssassin works by analyzing each email and comparing the various headers and message bodies to a sample set of strings. SpamAssassin also use Bayesian analysis to learn, analyze and keep the rules databases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
 
 
 Further maintenance
@@ -59,13 +54,23 @@ Further maintenance
 
 Documentation
 For admin:
-/** need to be done **/
+	Blocking:
+		There are two files for managing which are /etc/mail/access_db and /etc/mail/sendmail.mc. If you want to add some specific DNS to be blocked, you can add those into access_db, and set it to be reject. To update the DNS blacklist providers, you will need to change the content in sendmail.mc. The format will be:
+			FEATURE(`dnsbl', `dnsbl provider')dnl
+		After all change, you have to do the following step to make sure the server works as you want:
+			cd /etc/mail
+			make all
+			service sendmail restart
+		
+	Filtering:
+		Edit /etc/spamassassin/local.cf.
+		Inside this file, there are many configuration can be set. For more information, check "man spamassassin"
 
 For user:
 	Users can configure their own per-user promail behavior. If you'd like to reject(bounce) spam with an unfriendly error message, you can do the following works.   
 	/** need to be done **/
 	1. Create a new configuration file "~/.procmailrc"
-	2. Inside the file, type-in the following command: (Number at the beginning of each line is the line number, you don't need to type it in your file)
+	2. Inside the file, type-in the following command: (Number at the beginning of each line is the line number; you don't need to type it in your file)
 		1:  MAILDIR=$HOME/mail
 		2:  
 		3:  :0 H
