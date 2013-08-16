@@ -31,7 +31,7 @@ Effect on its user population:
 	
 	Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or we supposed to deliver as trusted email, but it can go ti spam folder. 
 	Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem. To minimize this problem, we make spam filtering as much accurate as we can. 
-	
+	Even though email blocking and filtering is not perfectly work, this function reduce the amount of annoying junk emails, and potential hazard of user been hacking or phishing to release their confidential information. 
 	/** need to be added**/
 
 
