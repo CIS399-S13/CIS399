@@ -9,10 +9,10 @@ Goals for the project and test methods
 Testing our goal:
 	Blocking:
 		Since we are not easy to receive email from those DNS in the blacklist, we test this feature by adding the server that we have email account on. We add those DNS into /etc/mail/access_db file, and set those DNSs to be rejected. Then we try sending emails from those email servers. During our testing, we cannot receive any email from the servers that have been blocked, and we will receive an email noticing us that the email cannot be delivered because of the rejection from the server.
-		Thus, the blocking feature works good.  
+		Thus, the blocking feature works well.  
 
 	Filtering: 
-		In this test, we have use different approaches.
+		In this test, we have used different approaches.
 		1. Magical string test.
 			We implement this test by using GTUBE.
 			According to the wiki page of SpamAssassin, GTUBE is used to test if SpamAssassin is working. We just need to simply sent an email including a "magical" srting which is "XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X" in the body. This test was passed. All email with this string has been considered as spam, and has been placed into the spam folder.
@@ -33,7 +33,7 @@ Effect on its user population:
 
 Security issue
 	In fact, there is no really security issue from adding the spam blocking and filtering function to the server.
-	They one we can say is that his project can give a cleaner environment to user so that they won't see too many useless emails, and will have lower risks of leaking personal information. Some spam may phishing email. These email will get user's personal information for financial purpose. If users don't recongnize those email are phishing email, they may easily lost their money. Also, normal email messages are not entirely secure. Someone could gain unauthorized access to the accounts of sender or recipient by pretending as some companies you are using. These emails are called spear phishing. In current day, many people lost their money because of trusting these email. Therefore, providing spam filtering function can lower user's risk they may meet.  
+	They one we can say is that his project can give a cleaner environment to user so that they won't see too many useless emails, and will have lower risks of leaking personal information. Some spam may phishing email. These emails will get user's personal information for financial purpose. If users don't recongnize those email are phishing email, they may easily lost their money. Also, normal email messages are not entirely secure. Someone could gain unauthorized access to the accounts of sender or recipient by pretending as some companies you are using. These emails are called spear phishing. In current day, many people lost their money because of trusting these email. Therefore, providing spam filtering function can lower user's risk they may meet.  
 	
 Works need to be completed
 	Blocking:
@@ -55,7 +55,7 @@ Further maintenance
 Documentation
 For admin:
 	Blocking:
-		There are two files for managing which are /etc/mail/access_db and /etc/mail/sendmail.mc. If you want to add some specific DNS to be blocked, you can add those into access_db, and set it to be reject. To update the DNS blacklist providers, you will need to change the content in sendmail.mc. The format will be:
+		There are two files for managing which are /etc/mail/access_db and /etc/mail/sendmail.mc. If you want to add some specific DNS to be blocked, you can add those into access_db, and set it to be rejected. To update the DNS blacklist providers, you will need to change the content in sendmail.mc. The format will be:
 			FEATURE(`dnsbl', `dnsbl provider')dnl
 		After all change, you have to do the following step to make sure the server works as you want:
 			cd /etc/mail
