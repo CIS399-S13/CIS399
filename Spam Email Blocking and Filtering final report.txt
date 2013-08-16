@@ -7,8 +7,9 @@ Goals for the project and test methods
 	We cannot really receive bunches of spams from many different sources since our server address is not publicized. To test how good those functions work, we will test the blocking feature by adding some DNS that we have email accounts on into the blacklist, then send email from those DNS to the server. See if the emails are block. To test the filtering feature, we will use different approaches which will be described below.
 
 Testing our goal:
+	We planed to perform several methods to ensure the system can handle emails proper way. 
 	Blocking:
-		Since we are not easy to receive email from those DNS in the blacklist, we test this feature by adding the server that we have email account on. We add those DNS into /etc/mail/access_db file, and set those DNSs to be rejected. Then we try sending emails from those email servers. During our testing, we cannot receive any email from the servers that have been blocked, and we will receive an email noticing us that the email cannot be delivered because of the rejection from the server.
+		Since we are not easy to receive email from DNS in the blacklist, we tested this feature by adding the server that we have email account on like gmail. We add those DNS into /etc/mail/access_db file, and set those DNSs to be rejected. Then we try sending emails from those email servers. During our testing, we cannot receive any email from the servers that have been blocked, and we will receive an email noticing us that the email cannot be delivered because of the rejection from the server.
 		Thus, the blocking feature works well.  
 
 	Filtering: 
@@ -28,7 +29,7 @@ Testing our goal:
 		Based on these three tests, we believe the spam filtering feature is working.
 
 Effect on its user population:
-	There is little issue that will affect the user population. Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or supposed to be delivered as trusted email, but it will be blocked or filter into spam folder. Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem if they have the same problem several times. Moreover, some users may give up using our server. However, we cannot avoid this problem since different people will have different spam critiria. It's difficult to have a rule that good for everyone. What we can do is to minimize this problem. To approach this goal, we will make spam filtering as much accurate as we can. Even though email blocking and filtering is not perfectly work, this function reduce the amount of annoying junk emails, and potential hazard of user been hacking or phishing to release their confidential information. 
+	There is little issue that will affect the user population. Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be, or supposed to be delivered as trusted email instead of the mail goes to spam folder. Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem if they have the same problem several times. Moreover, some users may give up using our server. However, we cannot avoid this problem since different people will have different spam critiria. It's difficult to have a rule that good for everyone. What we can do is to minimize this problem. To approach this goal, we will make spam filtering as much accurate as we can. Even though email blocking and filtering is not perfectly work, this function reduce the amount of annoying junk emails, and potential hazard of user been hacking or phishing to release their confidential information. 
 
 
 Security issue
@@ -68,7 +69,7 @@ For admin:
 
 For user:
 	Users can configure their own per-user promail behavior. If you'd like to reject(bounce) spam with an unfriendly error message, you can do the following works.   
-	/** need to be done **/
+	
 	1. Create a new configuration file "~/.procmailrc"
 	2. Inside the file, type-in the following command: (Number at the beginning of each line is the line number; you don't need to type it in your file)
 		1:  MAILDIR=$HOME/mail
