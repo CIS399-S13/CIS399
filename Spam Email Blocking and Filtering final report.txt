@@ -3,7 +3,7 @@ Unwanted junk mail – spam – is an ever present problem for any organization 
 
 
 Goals for the project and test methods
-	In this project, we will update our email service by adding spam filtering and blocking features. To active the blocking feature, we use some free DNS blacklists that provided on the internet. For spam filtering, we will use SpamAssassin as assisstent. 
+	In this project, we will update our email service by adding spam filtering and blocking features. To active the blocking feature, we use some free DNS blacklists that provided on the internet. For spam filtering, we will use SpamAssassin as assistant. 
 	We cannot really receive bunches of spams from many different sources since our server address is not publicized. To test how good those functions work, we will test the blocking feature by adding some DNS that we have email accounts on into the blacklist, then send email from those DNS to the server. See if the emails are block. To test the filtering feature, we will use different approaches which will be described below.
 
 Testing our goal:
@@ -20,7 +20,7 @@ Testing our goal:
 		2. Forward the spam from our other email account.
 			We try copying or forwarding some spams from the uoregon.edu email account and gmail account to our asian.ilab.cs.uoreogn.edu server. We assumed it will work, and all the spams will be move to the spam file.
 			However, base on our test result, non of the spam was detected and be filtered. All spams forwarded from other account still be delivered to the normail mail box.
-			At the beginning, we were confuse about this, and we thought that's because the spamAssassin is not working correctly. However, that's not true. We try to find out reason about this from the wiki page. In the wiki page, it states that "if you're not a spammer and the message was solicited and it wasn't bulk then it ain't spam. So don't send yourself "spam" and expect SpamAssassin to agree!" (SpamAssassin Wiki). So no matter how we configure the SpamAssassin, it won't filter any spam that forwarded by ourselves.
+			At the beginning, we were confuse about this, and we thought that's because the spamAssassin is not working correctly. However, that's not true. We try to find out reason about this from the wiki page. In the wiki page, it states that "if you're not a spammer and the message was solicited and it wasn't bulk then it's not a spam. So don't send yourself "spam" and expect SpamAssassin to agree!" (SpamAssassin Wiki). So no matter how we configure the SpamAssassin, it won't filter any spam that forwarded by ourselves.
 			Therefore, we failed this test, and it was not efficient test.
 		3. Use online spam generator to send some spam email to our server. 
 			After searching from google, we have found a website that provides sending some spams for test which is http://www.maysoft.com/selfservespam.nsf/dl. This website can create and send at most five spams per request. We try using it to send many spam to our server, and most spams have been caught and moved into spam folder. Only a few of the spams pass the spam filtering and be delivered to the regular mailbox.
@@ -47,13 +47,13 @@ Works need to be completed
 
 	Filtering:
 		Since we already have the sendmail service install in our serve, what we need to do is to install the SpamAssassian. 
-		After the spamAssassian is succes to install, integrating spamAssassin with sendmail. 
+		After the spamAssassian is success to install, integrating spamAssassin with sendmail. 
 		Firstly, configuring procmail to receives the email form sendmail and matches the email against a set of rules specified in /etc/procmailrc. 
-		Secondly, configuring spamAssassin. Since spamAssassin works by analysing each email and comparing the various headers and message bodies to a sample set of strings. Or, spamAssassin use Bayesian analysis to learn, analyze and keep the rules datebases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
+		Secondly, configuring spamAssassin. Since spamAssassin works by analyzing each email and comparing the various headers and message bodies to a sample set of strings. Or, spamAssassin use Bayesian analysis to learn, analyze and keep the rules databases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
 
 
 Further maintenance
-	Since spam blocking DNS are updating frequently, and it's possible that the DNS blacklist provider we are using will be shutted down in the future, we have to keep track of the provider to make sure the DNS blacklist is still working. Also, the blacklist needs to be update frequently.(May need to be check once a week.)
+	Since spam blocking DNS are updating frequently, and it's possible that the DNS blacklist provider we are using will be shut down in the future, we have to keep track of the provider to make sure the DNS blacklist is still working. Also, the blacklist needs to be update frequently.(May need to be check once a week.)
 	
 	For the spam filtering feature, we need to update the rules for filtering. We will set a cron job to do this once a week to make sure SpamAssassin can perform best. 
 
