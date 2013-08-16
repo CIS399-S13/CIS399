@@ -1,28 +1,11 @@
 Spam Email Blocking and Filtering final report
 Unwanted junk mail – spam – is an ever present problem for any organization that uses email. By implementing spam filtering and blocking features, most users of the server will receive less useless messages, and the email service can clutter their mailbox and makes their work more efficient.
 
+
 Goals for the project and test methods
 	In this project, we will update our email service by adding spam filtering and blocking features. To active the blocking feature, we use some free DNS blacklists that provided on the internet. For spam filtering, we will use SpamAssassin as assisstent. 
 	We cannot really receive bunches of spams from many different sources since our server address is not publicized. To test how good those functions work, we will test the blocking feature by adding some DNS that we have email accounts on into the blacklist, then send email from those DNS to the server. See if the emails are block. To test the filtering feature, we will use different approaches which will be described below.
 
-Implementation:
-Since we already have the sendmail service installed to our server, we installed the spamAssassian to filter spam emails. 
-After the spamAssassian is successfully installed, we integrated spamAssassin with sendmail. 
-First, configure procmail to receive emails form sendmail and match these emails against a set of rules specified in /etc/procmailrc. 
-Second, configure spamAssassin. Since spamAssassin works by analyzing each email and comparing the various headers and message bodies to a sample set of strings. Or, spamAssassin use Bayesian analysis to learn, analyze and keep the rules datebases up to date. The local.cf has some default rules, and it can also place configuration directives and rules.
-Testing Impementation:
-1. magical string test
-	The testing string is "XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X", and when we send a email by pasting the string to the email body, our spamAssassian recognized the email as spam.
-
-2. copying the spams which we got from the uoregon.edu email account, and sent them to the asian.ilab.cs.uoregon.edu email account. It works, and all the spams will be in the spam folder.
-But if it forwards the spam from the uo email account or gmail account, it doesn't work. They still show in the mail folder.
-
-3. useing http://www.maysoft.com/selfservespam.nsf/dl 
-	This website can request to send a sample of known spam email by simply adding the email address. To create spams and send mail to the su@asian.ilab.cs.uoregon.edu. Most of the spams sent from the website were caught and replaced into spam folder. Only a few of the spams can show in the regular mail folder. 
-
-Effect on its user population
-Since the blocking method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or vice versa. Therefore, some emails could mark as spam emails even if it is important email for the user.  
-Users may complain about this problem. To minimize this problem, we make spam filtering as much accurate as we can. 
 Testing our goal:
 	Blocking:
 		Since we are not easy to receive email from those DNS in the blacklist, we test this feature by adding the server that we have email account on. We add those DNS into /etc/mail/access_db file, and set those DNSs to be rejected. Then we try sending emails from those email servers. During our testing, we cannot receive any email from the servers that have been blocked, and we will receive an email noticing us that the email cannot be delivered because of the rejection from the server.
@@ -32,21 +15,23 @@ Testing our goal:
 		In this test, we have use different approaches.
 		1. Magical string test.
 			We implement this test by using GTUBE.
-			According to the wiki page of SpamAssassin, GTUBE is used to test if SpamAssassin is working. We just need to simply sent an email including a "magical" srting which is "XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X". This test was passed. All email with this string has been considered as spam, and has been moved to the spam file.
+			According to the wiki page of SpamAssassin, GTUBE is used to test if SpamAssassin is working. We just need to simply sent an email including a "magical" srting which is "XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X" in the body. This test was passed. All email with this string has been considered as spam, and has been placed into the spam folder.
 			
 		2. Forward the spam from our other email account.
-			We try copying or forwarding some spams from the uoregon.edu email account and gmail account to our email server. We assumed it will work, and all the spams will be move to the spam file.
+			We try copying or forwarding some spams from the uoregon.edu email account and gmail account to our asian.ilab.cs.uoreogn.edu server. We assumed it will work, and all the spams will be move to the spam file.
 			However, base on our test result, non of the spam was detected and be filtered. All spams forwarded from other account still be delivered to the normail mail box.
 			At the beginning, we were confuse about this, and we thought that's because the spamAssassin is not working correctly. However, that's not true. We try to find out reason about this from the wiki page. In the wiki page, it states that "if you're not a spammer and the message was solicited and it wasn't bulk then it ain't spam. So don't send yourself "spam" and expect SpamAssassin to agree!" (SpamAssassin Wiki). So no matter how we configure the SpamAssassin, it won't filter any spam that forwarded by ourselves.
-			
+			Therefore, we failed this test, and it was not efficient test.
 		3. Use online spam generator to send some spam email to our server. 
 			After searching from google, we have found a website that provides sending some spams for test which is http://www.maysoft.com/selfservespam.nsf/dl. This website can create and send at most five spams per request. We try using it to send many spam to our server, and most spams have been caught and moved into spam folder. Only a few of the spams pass the spam filtering and be delivered to the regular mailbox.
 
-		Base on these three test, we think the spam filtering feature is working good.
+		Base on these three test, we believe the spam filtering feature is working.
 
 Effect on its user population:
-	Since the blocking method is not really accurate, some emails may be blocked even if it shouldn't be blocked.
-	User may complain about this problem. So we may want to make filtering as much accurate as we can. 
+	
+	Since the filtering method is not perfectly filter emails. Some emails may be blocked even if it shouldn't be blocked, or we supposed to deliver as trusted email, but it can go ti spam folder. 
+	Therefore, some emails could mark as spam emails even if it is important email for the user. Users may complain about this problem. To minimize this problem, we make spam filtering as much accurate as we can. 
+	
 	/** need to be added**/
 
 
